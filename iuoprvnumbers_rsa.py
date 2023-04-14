@@ -11,7 +11,6 @@ n and e both public and together are public key
 simple example
 """
 
-from  base64 import b64encode,b64decode
 from cryptography.hazmat.primitives.asymmetric.rsa import(
 	RSAPublicNumbers,RSAPrivateNumbers,generate_private_key,RSAPrivateKey)
 
@@ -42,7 +41,7 @@ class RsaNumbers:
 
 	@property
 	def public_key(self):
-		return self._key.public_key if self.isPrivateKey() else self._key
+		return self._key.public_key() if self.isPrivateKey() else self._key
 
 	def isPrivateKey(self):
 		return isinstance(self._key,RSAPrivateKey)
